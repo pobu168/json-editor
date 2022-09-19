@@ -28,7 +28,7 @@
         </a-tree>
         <a-modal v-model:visible="visible" title="节点">
           <template #footer>
-            <a-button key="back" @click="confirmNode">确定</a-button>
+            <a-button key="back" type="primary" @click="confirmNode">确定</a-button>
             <a-button key="back" @click="cancelNode">取消</a-button>
           </template>
           <a-form
@@ -244,7 +244,6 @@
     } else if (nodeAttrs.value.type === 'json') {
       try {
         nodeAttrs.value.value = JSON.parse(nodeAttrs.value.value)
-        console.log(nodeAttrs.value.value)
       } catch {
         message.warning('无法转成JSON')
         return
@@ -268,7 +267,6 @@
   })
   
   const confirmAddNode = () => {
-    console.log(activeKey)
     ++timeSnap
     if (activeKey === 'root') {
       treeData.value.push({
